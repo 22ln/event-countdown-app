@@ -1,13 +1,16 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import '../models/event.dart';
+import '../services/event_database_helper.dart'; // Make sure to import your database helper
 
 class EventViewModel extends ChangeNotifier {
+  final EventDatabaseHelper _databaseHelper = EventDatabaseHelper();
   final List<Event> _events = [];
   Timer? _timer;
 
   EventViewModel() {
     _startTimer();
+    fetchEvents(); // Load events from the database on initialization
   }
 
   List<Event> get events => List.unmodifiable(_events);
@@ -23,19 +26,34 @@ class EventViewModel extends ChangeNotifier {
     super.dispose();
   }
 
-  void addEvent(String name, DateTime date) {
-    _events.add(Event(name: name, date: date));
-    notifyListeners();
+  // Fetch events from the database
+  Future<void> fetchEvents() async {
+    _events.clear(); // Clear current list
+    final eventList = await _databaseHelper.getEvents(); // Get events from the database
+    _events.addAll(eventList); // Add fetched events to the list
+    notifyListeners(); // Notify UI of changes
   }
 
-  void editEvent(int index, String name, DateTime date) {
-    _events[index] = Event(name: name, date: date);
-    notifyListeners();
+  // Add a new event to the database
+  Future<void> addEvent(String name, DateTime date) async {
+    final newEvent = Event(name: name, date: date);
+    await _databaseHelper.insertEvent(newEvent); // Save event to the database
+    await fetchEvents(); // Refresh the events list
   }
 
-  void deleteEvent(int index) {
-    _events.removeAt(index);
-    notifyListeners();
+  
+// Edit an existing event
+Future<void> editEvent(int id, String name, DateTime date) async {
+  final updatedEvent = Event(id: id, name: name, date: date); // Pass the id here
+  await _databaseHelper.updateEvent(updatedEvent); // Update the event in the database
+  await fetchEvents(); // Refresh the events list
+}
+
+
+  // Delete an event by its ID
+  Future<void> deleteEvent(int id) async {
+    await _databaseHelper.deleteEvent(id); // Delete event from the database
+    await fetchEvents(); // Refresh the events list
   }
 
   String getCountdown(DateTime eventDate) {

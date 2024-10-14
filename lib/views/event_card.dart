@@ -18,12 +18,14 @@ class EventCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final screenWidth = MediaQuery.of(context).size.width;
+
     return Card(
       elevation: 8,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(15),
       ),
-      margin: EdgeInsets.symmetric(vertical: 10),
+      margin: EdgeInsets.symmetric(vertical: 5),
       child: Container(
         decoration: BoxDecoration(
           gradient: LinearGradient(
@@ -40,22 +42,29 @@ class EventCard extends StatelessWidget {
             Text(
               eventName,
               style: TextStyle(
-                  fontSize: 24,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.white,
-                  fontFamily: 'Poppins'),
+                fontSize: screenWidth * 0.06, // Responsive font size
+                fontWeight: FontWeight.bold,
+                color: Colors.white,
+                fontFamily: 'Poppins',
+              ),
             ),
             SizedBox(height: 6),
             Text(
               countdown,
               style: TextStyle(
-                  fontSize: 18, color: Colors.white70, fontFamily: 'Poppins'),
+                fontSize: screenWidth * 0.05, // Responsive font size
+                color: Colors.white70,
+                fontFamily: 'Poppins',
+              ),
             ),
             SizedBox(height: 10),
             Text(
               'Event Date: ${DateFormat('yyyy-MM-dd').format(eventDate)}',
               style: TextStyle(
-                  fontSize: 14, color: Colors.white70, fontFamily: 'Poppins'),
+                fontSize: screenWidth * 0.04, // Responsive font size
+                color: Colors.white70,
+                fontFamily: 'Poppins',
+              ),
             ),
             SizedBox(height: 10),
             Row(
@@ -64,11 +73,10 @@ class EventCard extends StatelessWidget {
                 ElevatedButton(
                   onPressed: onEdit,
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.white, // Background color
-                    foregroundColor: Colors.teal, // Text color
+                    backgroundColor: Colors.white,
+                    foregroundColor: Colors.teal,
                     shape: RoundedRectangleBorder(
-                      borderRadius:
-                          BorderRadius.circular(20), // Rounded corners
+                      borderRadius: BorderRadius.circular(20),
                     ),
                     padding: EdgeInsets.symmetric(horizontal: 10, vertical: 8),
                   ),
@@ -84,11 +92,10 @@ class EventCard extends StatelessWidget {
                 ElevatedButton(
                   onPressed: onDelete,
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.red, // Background color
-                    foregroundColor: Colors.white, // Text color
+                    backgroundColor: Colors.red,
+                    foregroundColor: Colors.white,
                     shape: RoundedRectangleBorder(
-                      borderRadius:
-                          BorderRadius.circular(20), // Rounded corners
+                      borderRadius: BorderRadius.circular(20),
                     ),
                     padding: EdgeInsets.symmetric(horizontal: 10, vertical: 8),
                   ),

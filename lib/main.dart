@@ -1,8 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:device_preview/device_preview.dart';
+import 'package:provider/provider.dart';
 import 'views/event_home_page.dart';
+import 'view_models/event_view_model.dart'; // Import your EventViewModel
 
 void main() {
-  runApp(EventCountdownApp());
+  runApp(
+    DevicePreview(
+      enabled: true, // Set this to true to enable device preview
+      builder: (context) => ChangeNotifierProvider(
+        create: (_) => EventViewModel(), // Provide the EventViewModel here
+        child: EventCountdownApp(),
+      ),
+    ),
+  );
 }
 
 class EventCountdownApp extends StatelessWidget {
@@ -21,6 +32,7 @@ class EventCountdownApp extends StatelessWidget {
         ),
       ),
       home: EventHomePage(),
+      builder: DevicePreview.appBuilder,
     );
   }
 }

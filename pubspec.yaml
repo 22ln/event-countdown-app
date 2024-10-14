@@ -33,6 +33,10 @@ dependencies:
   flutter_svg: ^2.0.10+1    
   intl: ^0.18.0 # You can specify a version or leave it as `any` to get the latest version
   provider: ^6.1.2 # Add this line for provider package
+  device_preview: ^1.1.0
+  path_provider: ^2.1.4
+  sqflite: ^2.3.3+1  # Downgraded version  path_provider: ^2.1.4
+  path: ^1.9.0
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.6
@@ -40,7 +44,6 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_svg: ^2.0.10+1 # Use the latest version
 
   flutter_lints: ^3.0.0
 

@@ -8,9 +8,18 @@ void showEditEventDialog(BuildContext context, EventViewModel eventViewModel, in
   showDialog(
     context: context,
     builder: (context) {
+      final screenSize = MediaQuery.of(context).size;
+      final isLargeScreen = screenSize.width > 600;
+
       return AlertDialog(
         backgroundColor: Colors.white,
-        title: Text('Edit Event', style: TextStyle(color: Colors.black)),
+        title: Text(
+          'Edit Event',
+          style: TextStyle(
+            color: Colors.black,
+            fontSize: isLargeScreen ? 24 : 18,
+          ),
+        ),
         content: SingleChildScrollView(
           child: Column(
             mainAxisSize: MainAxisSize.min,
@@ -20,16 +29,22 @@ void showEditEventDialog(BuildContext context, EventViewModel eventViewModel, in
                 style: TextStyle(color: Colors.black),
                 decoration: InputDecoration(
                   labelText: 'Event Name',
-                  labelStyle: TextStyle(color: Colors.grey),
+                  labelStyle: TextStyle(
+                    color: Colors.grey,
+                    fontSize: isLargeScreen ? 18 : 14, // Responsive font size
+                  ),
                   border: OutlineInputBorder(),
                 ),
                 onChanged: (value) {
                   updatedName = value;
                 },
               ),
-              SizedBox(height: 10),
+              SizedBox(height: screenSize.height * 0.02),
               ElevatedButton(
-                style: ElevatedButton.styleFrom(backgroundColor: Colors.teal),
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.teal,
+                  padding: EdgeInsets.all(16),
+                ),
                 onPressed: () async {
                   final DateTime? picked = await showDatePicker(
                     context: context,
@@ -41,7 +56,13 @@ void showEditEventDialog(BuildContext context, EventViewModel eventViewModel, in
                     selectedDate = picked;
                   }
                 },
-                child: Text('Select Date', style: TextStyle(color: Colors.white)),
+                child: Text(
+                  'Select Date',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: isLargeScreen ? 18 : 14,
+                  ),
+                ),
               ),
             ],
           ),
@@ -50,12 +71,24 @@ void showEditEventDialog(BuildContext context, EventViewModel eventViewModel, in
           ElevatedButton(
             onPressed: () {
               if (updatedName.isNotEmpty) {
-                eventViewModel.editEvent(index, updatedName, selectedDate);
+                eventViewModel.editEvent(eventViewModel.events[index].id!, updatedName, selectedDate); // Pass event ID here
               }
               Navigator.of(context).pop();
             },
-            style: ElevatedButton.styleFrom(backgroundColor: Colors.teal),
-            child: Text('Update', style: TextStyle(color: Colors.white)),
+            style: ElevatedButton.styleFrom(
+              backgroundColor: Colors.teal,
+              padding: EdgeInsets.symmetric(
+                horizontal: screenSize.width * 0.03,
+                vertical: screenSize.height * 0.015,
+              ),
+            ),
+            child: Text(
+              'Update',
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: isLargeScreen ? 18 : 14,
+              ),
+            ),
           ),
         ],
       );
