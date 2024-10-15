@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../services/local_notification_service.dart';
 import '../view_models/event_view_model.dart';
 
 void showEditEventDialog(BuildContext context, EventViewModel eventViewModel, int index, String eventName, DateTime eventDate) {
@@ -74,6 +75,7 @@ void showEditEventDialog(BuildContext context, EventViewModel eventViewModel, in
                 eventViewModel.editEvent(eventViewModel.events[index].id!, updatedName, selectedDate); // Pass event ID here
               }
               Navigator.of(context).pop();
+              LocalNotificationService.showBasicNotification();
             },
             style: ElevatedButton.styleFrom(
               backgroundColor: Colors.teal,

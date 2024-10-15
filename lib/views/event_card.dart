@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
+import '../services/local_notification_service.dart';
+
 class EventCard extends StatelessWidget {
   final String eventName;
   final DateTime eventDate;
@@ -104,6 +106,30 @@ class EventCard extends StatelessWidget {
                       Icon(Icons.delete, color: Colors.white),
                       SizedBox(width: 5),
                       Text('Delete', style: TextStyle(fontSize: 14)),
+                    ],
+                  ),
+                ),
+                const SizedBox(width: 10),
+
+                ElevatedButton(
+                  onPressed: () {
+                    // Schedule the notification when the button is pressed
+                    DateTime selectedDates = DateTime.now();
+                    LocalNotificationService.showScheduledNotification(selectedDates);
+                  },
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.teal, // Button background color
+                    foregroundColor: Colors.white, // Button text color
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(20), // Rounded corners
+                    ),
+                    padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 8),
+                  ),
+                  child: const Row(
+                    children: [
+                      const Icon(Icons.notifications, color: Colors.white, size: 20), // Icon
+                      const SizedBox(width: 3),  // Spacing between icon and text
+                      const Text('Notification', style: TextStyle(fontSize: 12)), // Button text
                     ],
                   ),
                 ),
