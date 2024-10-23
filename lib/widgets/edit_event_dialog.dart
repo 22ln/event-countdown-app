@@ -27,14 +27,14 @@ void showEditEventDialog(BuildContext context, EventViewModel eventViewModel, in
             children: [
               TextField(
                 controller: TextEditingController(text: eventName),
-                style: TextStyle(color: Colors.black),
+                style: const TextStyle(color: Colors.black),
                 decoration: InputDecoration(
                   labelText: 'Event Name',
                   labelStyle: TextStyle(
                     color: Colors.grey,
                     fontSize: isLargeScreen ? 18 : 14, // Responsive font size
                   ),
-                  border: OutlineInputBorder(),
+                  border: const OutlineInputBorder(),
                 ),
                 onChanged: (value) {
                   updatedName = value;
@@ -44,7 +44,7 @@ void showEditEventDialog(BuildContext context, EventViewModel eventViewModel, in
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.teal,
-                  padding: EdgeInsets.all(16),
+                  padding: const EdgeInsets.all(16),
                 ),
                 onPressed: () async {
                   final DateTime? picked = await showDatePicker(

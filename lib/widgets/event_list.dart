@@ -9,11 +9,11 @@ class EventList extends StatelessWidget {
   final Function(int) onDelete;
 
   const EventList({
-    Key? key,
+    super.key,
     required this.eventViewModel,
     required this.onEdit,
     required this.onDelete,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -44,6 +44,7 @@ class EventList extends StatelessWidget {
                   countdown: eventViewModel.getCountdown(event.date),
                   onEdit: () => onEdit(context, index, event.name, event.date),
                   onDelete: () => onDelete(event.id!),
+                  eventId: event.id!,
                 ),
               );
             },

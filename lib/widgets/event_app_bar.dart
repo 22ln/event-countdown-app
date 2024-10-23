@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 
 class EventAppScreen extends StatelessWidget {
+  const EventAppScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: EventAppBar(),  // Custom AppBar
+      appBar: const EventAppBar(),  // Custom AppBar
       body: LayoutBuilder(
         builder: (context, constraints) {
           // Get the available height and width
@@ -32,13 +34,13 @@ class EventAppScreen extends StatelessWidget {
                     onPressed: () {
                       // Show Add Event dialog or perform an action
                     },
-                    child: Text('Add Event'),
                     style: ElevatedButton.styleFrom(
                       padding: EdgeInsets.symmetric(
                         horizontal: screenWidth * 0.2,  // Adjust button padding based on screen size
                         vertical: screenHeight * 0.015,  // Vertical padding for button
                       ),
                     ),
+                    child: const Text('Add Event'),
                   ),
                 ],
               ),
@@ -51,6 +53,8 @@ class EventAppScreen extends StatelessWidget {
 }
 
 class EventAppBar extends StatelessWidget implements PreferredSizeWidget {
+  const EventAppBar({super.key});
+
   @override
   Widget build(BuildContext context) {
     final screenHeight = MediaQuery.of(context).size.height;
@@ -76,5 +80,5 @@ class EventAppBar extends StatelessWidget implements PreferredSizeWidget {
   }
 
   @override
-  Size get preferredSize => Size.fromHeight(kToolbarHeight);
+  Size get preferredSize => const Size.fromHeight(kToolbarHeight);
 }

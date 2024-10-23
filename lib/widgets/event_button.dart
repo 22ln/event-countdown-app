@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class EventButton extends StatelessWidget {
   final VoidCallback onPressed;
 
-  const EventButton({Key? key, required this.onPressed}) : super(key: key);
+  const EventButton({super.key, required this.onPressed});
 
   @override
   Widget build(BuildContext context) {

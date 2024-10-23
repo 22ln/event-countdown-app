@@ -25,14 +25,14 @@ void showAddEventDialog(BuildContext context, EventViewModel eventViewModel) {
             mainAxisSize: MainAxisSize.min,
             children: [
               TextField(
-                style: TextStyle(color: Colors.black),
+                style: const TextStyle(color: Colors.black),
                 decoration: InputDecoration(
                   labelText: 'Event Name',
                   labelStyle: TextStyle(
                     color: Colors.grey,
                     fontSize: isLargeScreen ? 18 : 14, 
                   ),
-                  border: OutlineInputBorder(),
+                  border: const OutlineInputBorder(),
                 ),
                 onChanged: (value) {
                   eventName = value;
@@ -79,7 +79,7 @@ void showAddEventDialog(BuildContext context, EventViewModel eventViewModel) {
             },
             style: ElevatedButton.styleFrom(
               backgroundColor: Colors.teal,
-              padding: EdgeInsets.all(16)
+              padding: const EdgeInsets.all(16)
             ),
             child: Text(
               'Add',

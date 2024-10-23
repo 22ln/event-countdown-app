@@ -28,7 +28,7 @@ class LocalNotificationService {
 
   //basic Notification
   static void showBasicNotification() async {
-    AndroidNotificationDetails android = AndroidNotificationDetails(
+    AndroidNotificationDetails android = const AndroidNotificationDetails(
         'id 1', 'basic notification',
         importance: Importance.max,
         priority: Priority.high,

@@ -1,58 +1,58 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import '../models/event.dart';
-import '../services/event_database_helper.dart'; // Make sure to import your database helper
+import '../repositories/event_repository.dart';
 
 class EventViewModel extends ChangeNotifier {
-  final EventDatabaseHelper _databaseHelper = EventDatabaseHelper();
+  final EventRepository _repository;
   final List<Event> _events = [];
   Timer? _timer;
 
-  EventViewModel() {
+  // Modify constructor to accept EventRepository
+  EventViewModel({required EventRepository repository}) : _repository = repository {
     _startTimer();
-    fetchEvents(); // Load events from the database on initialization
+    fetchEvents(); // Load events from the repository on initialization
   }
 
   List<Event> get events => List.unmodifiable(_events);
 
   void _startTimer() {
-    _timer = Timer.periodic(Duration(seconds: 1), (timer) {
+    _timer = Timer.periodic(const Duration(seconds: 1), (timer) {
       notifyListeners();
     });
   }
 
+  @override
   void dispose() {
     _timer?.cancel();
     super.dispose();
   }
 
-  // Fetch events from the database
+  // Fetch events from the repository
   Future<void> fetchEvents() async {
-    _events.clear(); // Clear current list
-    final eventList = await _databaseHelper.getEvents(); // Get events from the database
-    _events.addAll(eventList); // Add fetched events to the list
-    notifyListeners(); // Notify UI of changes
+    _events.clear();
+    final eventList = await _repository.getEvents();
+    _events.addAll(eventList);
+    notifyListeners();
   }
 
-  // Add a new event to the database
+  // Add a new event using the repository
   Future<void> addEvent(String name, DateTime date) async {
     final newEvent = Event(name: name, date: date);
-    await _databaseHelper.insertEvent(newEvent); // Save event to the database
+    await _repository.addEvent(newEvent);
     await fetchEvents(); // Refresh the events list
   }
 
-  
-// Edit an existing event
-Future<void> editEvent(int id, String name, DateTime date) async {
-  final updatedEvent = Event(id: id, name: name, date: date); // Pass the id here
-  await _databaseHelper.updateEvent(updatedEvent); // Update the event in the database
-  await fetchEvents(); // Refresh the events list
-}
+  // Edit an existing event using the repository
+  Future<void> editEvent(int id, String name, DateTime date) async {
+    final updatedEvent = Event(id: id, name: name, date: date);
+    await _repository.editEvent(updatedEvent);
+    await fetchEvents(); // Refresh the events list
+  }
 
-
-  // Delete an event by its ID
+  // Delete an event by its ID using the repository
   Future<void> deleteEvent(int id) async {
-    await _databaseHelper.deleteEvent(id); // Delete event from the database
+    await _repository.deleteEvent(id);
     await fetchEvents(); // Refresh the events list
   }
 
@@ -65,6 +65,6 @@ Future<void> editEvent(int id, String name, DateTime date) async {
     final hours = difference.inHours.remainder(24);
     final minutes = difference.inMinutes.remainder(60);
     final seconds = difference.inSeconds.remainder(60);
-    return '$days days, $hours hours, $minutes minutes, $seconds seconds';
-  }
+    return '$days days, $hours hours, $minutes minutes, $seconds seconds';
+    }
 }
