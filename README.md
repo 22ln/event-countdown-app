@@ -54,10 +54,12 @@ Dart: Programming language
 
 Screenshots
 ### Welcome Screen
-![Welcome Screen](assets/images/home_page.jpg)
+
+![Welcome Screen](assets\images\home_page.jpg)
 
 ### Add Event Screen
-![Set Date](assets/images/calender_date.jpg)
+
+<img alt="Set Date" height="150" src="assets/images/calender_date.jpg" width="100"/>
 
 ### Event Card with Live Countdown
 ![Event Card](assets/images/event_cards.jpg)
