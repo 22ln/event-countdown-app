@@ -54,19 +54,19 @@ Dart: Programming language
 
 Screenshots
 ### Welcome Screen
-<img src="lib/assets/images/home_page.jpg" alt="Welcome Screen" width="100" height="150"/>
+<img src="lib/assets/images/home_page.jpg" alt="Welcome Screen" width="150" height="350"/>
 
 ### Add Event Screen
-<img src="lib/assets/images/calender_date.jpg" alt="Set Date" width="100" height="150"/>
+<img src="lib/assets/images/calender_date.jpg" alt="Set Date" width="150" height="350"/>
 
 ### Event Card with Live Countdown
-<img src="lib/assets/images/event_cards.jpg" alt="Event Card" width="100" height="150"/>
+<img src="lib/assets/images/event_cards.jpg" alt="Event Card" width="150" height="350"/>
 
 ### Notification Dialog
-<img src="lib/assets/images/notification_dialog.jpg" alt="Notification Dialog" width="100" height="150"/>
+<img src="lib/assets/images/notification_dialog.jpg" alt="Notification Dialog" width="150" height="350"/>
 
 ### Reminder ON/OFF
-<img src="lib/assets/images/notification_button.jpg" alt="Reminder Button" width="100" height="150"/>
+<img src="lib/assets/images/notification_button.jpg" alt="Reminder Button" width="150" height="350"/>
 
 
 Future Enhancements
