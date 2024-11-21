@@ -55,19 +55,19 @@ Dart: Programming language
 Screenshots
 ### Welcome Screen
 
-![Welcome Screen](assets/images/home_page.jpg)
+![Welcome Screen](lib/assets/images/home_page.jpg)
 
 ### Add Event Screen
-![Set Date](assets/images/calender_date.jpg)
+![Set Date](lib/assets/images/calender_date.jpg)
 
 ### Event Card with Live Countdown
-![Event Card](assets/images/event_cards.jpg)
+![Event Card](lib/assets/images/event_cards.jpg)
 
 ### Notification Dialog
-![Notification Dialog](assets/images/notification_dialog.jpg)
+![Notification Dialog](lib/assets/images/notification_dialog.jpg)
 
 ### Reminder ON/OFF
-![Reminder Button](assets/images/notification_button.jpg)
+![Reminder Button](lib/assets/images/notification_button.jpg)
 
 Future Enhancements
 Support for recurring events.
