@@ -22,8 +22,7 @@ Seamless experience on all screen sizes and orientations.
 Project Structure
 The app follows the MVVM Architecture with a well-organized structure:
 ├── assets  
-│   ├── images  
-│   └── screenshots  
+│   └── images
 ├── dao  
 │   └── event_dao.dart  
 ├── models  
@@ -54,7 +53,21 @@ MVVM: Architecture pattern
 Dart: Programming language
 
 Screenshots
-(Add screenshots or GIFs here to showcase your app's interface and features.)
+### Welcome Screen
+![Welcome Screen](assets/images/home_page.jpg)
+
+### Add Event Screen
+![Set Date](assets/images/calendar_date.jpg)
+
+### Event Card with Live Countdown
+![Event Card](assets/images/event_cards.jpg)
+
+### Notification Dialog
+![Notification Dialog](assets/images/notification_dialog.jpg)
+
+### Reminder ON/OFF
+
+![Reminder Button](assets/images/Notification_button_on-of.jpg)
 
 Future Enhancements
 Support for recurring events.
