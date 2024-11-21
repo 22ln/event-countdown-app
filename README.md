@@ -1,7 +1,9 @@
 Event Countdown App
+---------------------------
 An event countdown app built with Flutter, featuring a calendar for setting events, live countdown timers, and customizable reminder notifications. This app implements MVVM architecture, uses Room Database, and is fully responsive across different devices.
 
 Features
+--------------------------
 🏁 Welcome Screen
 A user-friendly starting screen to introduce the app.
 📅 Add Events
@@ -20,6 +22,7 @@ Remove events easily with a dedicated delete button.
 Seamless experience on all screen sizes and orientations.
 
 Project Structure
+---------------------------
 The app follows the MVVM Architecture with a well-organized structure:
 ├── assets  
 │   └── images
@@ -47,12 +50,14 @@ The app follows the MVVM Architecture with a well-organized structure:
 └── main.dart
 
 Tech Stack
+----------------------------
 Flutter: Framework
 Room Database: Local storage
 MVVM: Architecture pattern
 Dart: Programming language
 
 Screenshots
+---------------------------
 ### Welcome Screen
 <img src="lib/assets/images/home_page.jpg" alt="Welcome Screen" width="150" height="350"/>
 
@@ -70,6 +75,7 @@ Screenshots
 
 
 Future Enhancements
+-----------------------------
 Support for recurring events.
 Additional customization options for notifications.
 Dark mode support.
