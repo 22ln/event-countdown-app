@@ -57,7 +57,7 @@ Screenshots
 ![Welcome Screen](assets/images/home_page.jpg)
 
 ### Add Event Screen
-![Set Date](assets/images/calendar_date.jpg)
+![Set Date](assets/images/calender_date.jpg)
 
 ### Event Card with Live Countdown
 ![Event Card](assets/images/event_cards.jpg)
@@ -66,8 +66,7 @@ Screenshots
 ![Notification Dialog](assets/images/notification_dialog.jpg)
 
 ### Reminder ON/OFF
-
-![Reminder Button](assets/images/Notification_button_on-of.jpg)
+![Reminder Button](assets/images/notification_button.jpg)
 
 Future Enhancements
 Support for recurring events.
